@@ -10,24 +10,27 @@ class Note extends Database
     private string $title;
     private string $content;
 
-    public function __construct($title, $content){
+    private string $color;
+
+    public function __construct($title, $content, $color){
 
         $this->ref = uniqid();
         $this->title = $title;
         $this->content = $content;
+        $this->color = $color;
 
         parent::__construct();
 
     }
 
     public function save(){
-        $query = $this->connect()->prepare("INSERT INTO notes (ref, title, content, updated) VALUES (:ref, :title, :content, NOW())");
-        $query->execute(["ref" => $this->ref, "title" => $this->title, "content" => $this->content]);
+        $query = $this->connect()->prepare("INSERT INTO notes (ref, title, content, color,updated) VALUES (:ref, :title, :content, :color,NOW())");
+        $query->execute(["ref" => $this->ref, "title" => $this->title, "content" => $this->content, "color" => $this->color]);
     }
 
     public function update(){
-        $query = $this->connect()->prepare("UPDATE notes SET title = :title, content = :content, updated = NOW() WHERE ref = :ref");
-        $query->execute(["ref" => $this->ref, "title" => $this->title, "content" => $this->content]);
+        $query = $this->connect()->prepare("UPDATE notes SET title = :title, content = :content, color = :color,updated = NOW() WHERE ref = :ref");
+        $query->execute(["ref" => $this->ref, "title" => $this->title, "content" => $this->content, "color" => $this->color]);
     }
 
     public static function get($ref) : Note {
@@ -39,9 +42,22 @@ class Note extends Database
 
         return $note;
     }
+    public static function getAll() : array {
+        $notes = [];
+        $db = new Database();
+        $query = $db->connect()->query("SELECT * FROM notes");
+
+        //Esta iteracion recupera una fila por cada vuelta
+        while($r = $query->fetch(PDO::FETCH_ASSOC)){
+            $note = Note::createFromArrayNote($r);
+            array_push($notes, $note);
+        }
+
+        return $notes;
+    }
 
     public static function createFromArrayNote($arr) : Note {
-        $note = new Note($arr['title'], $arr['content']);
+        $note = new Note($arr['title'], $arr['content'], $arr['color']);
         $note->setRef($arr['ref']);
 
         return $note;
@@ -67,8 +83,16 @@ class Note extends Database
         return $this->content;
     }
 
-    public function setContetn($value){
+    public function setContent($value){
         $this->content = $value;
+    }
+
+    public function getColor(){
+        return $this->color;
+    }
+
+    public function setColor($value){
+        $this->color = $value;
     }
     
 }
