@@ -51,6 +51,9 @@ if (count($_POST) > 0) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="src/views/resources/create.css">
 
 </head>
@@ -59,7 +62,7 @@ if (count($_POST) > 0) {
     <?php require("resources/navbar.php") ?>
     <div class="container mt-5">
         <div class="note-form">
-            <form action="?view=create" method="post">
+            <form action="?view=create" method="post" id="formCreateNote">
                 <select class="form-select" name="color" id="colorSelect">
                     <option value="blue">Blue</option>
                     <option value="green">Green</option>
@@ -75,6 +78,7 @@ if (count($_POST) > 0) {
         </div>
     </div>
 
+    <!-- Evento para cambiar el color de la tarjeta mediante el select de colores -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const colorSelect = document.getElementById("colorSelect");
@@ -107,6 +111,33 @@ if (count($_POST) > 0) {
                 }
             });
         });
+    </script>
+
+    <!-- Evento para mostrar una alerta de progreso antes de hacer submit del form de creación de la nota -->
+    <script>
+        const form = document.getElementById("formCreateNote")
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+
+
+            Swal.fire({
+                title: 'Note created successfully!',
+                text: 'You will be redirected to home... Bye!! 👋',
+                allowOutsideClick: false,
+                timer: 1500,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading();
+                    setTimeout(() => {
+                        Swal.close();
+                    }, 5000);
+                },
+                willClose: () => {
+                    form.submit();
+                }
+            });
+        })
     </script>
 </body>
 
