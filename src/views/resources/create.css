@@ -1,0 +1,37 @@
+body {
+    background-color: #f8f9fa;
+    margin-top: 100px;
+}
+
+.note-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #b8d8d8;
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.note-form select,
+.note-form input[type="text"],
+.note-form textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+.note-form button[type="submit"] {
+    background-color: #ffc107;
+    color: #000;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.note-form button[type="submit"]:hover {
+    background-color: #ff9800;
+}
