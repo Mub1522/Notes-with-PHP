@@ -18,7 +18,9 @@
 
 ## Tecnologías Utilizadas 🛠️
 
-- **PHP 8**: Utilizado para manejar la lógica que sigue el patron MVC y la comunicación con la base de datos MySQL.
+- **PHP 8**: Utilizado para manejar la lógica que sigue el patrón  MVC y la comunicación con la base de datos MySQL.
+
+- **Composer**: Se ha empleado Composer para gestionar las dependencias del proyecto, facilitando la incorporación de librerías externas y su mantenimiento.
 
 - **MySQL 8**: Base de datos utilizada para almacenar y gestionar la información de las notas creadas por los usuarios.
 
