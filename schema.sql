@@ -1,3 +1,6 @@
+-- SCHEMA `notes_php`
+CREATE SCHEMA `notes_php` DEFAULT CHARACTER SET utf8mb4 ;
+
 -- Table `notes`
 CREATE TABLE notes(
     id INT AUTO_INCREMENT,
