@@ -1,8 +1,7 @@
 # Página de Creación de Notas con PHP, MySQL, Composer 🐘
 
 ![php (2)](https://github.com/Mub1522/Advanced-PHP-practices/assets/105318645/6daef348-e1e2-4bc9-a7d7-f688ef82133d)
-
-![notas-adhesivas](https://github.com/Mub1522/Notes-with-PHP/assets/105318645/fe12c0c1-5dd6-4e5c-8687-17a05232622d)
+![notas-adhesivas](https://github.com/Mub1522/Notes-with-PHP/assets/105318645/0483f7a0-832a-4bc1-b23d-8ddf50d8ed2b)
 
 ¡Bienvenido a mi repositorio de la Página de Creación de Notas con PHP, MySQL, Composer y el patron MVC! En este proyecto, he desarrollado una Página de Creación de Notas completamente funcional utilizando las tecnologías PHP 8, MySQL 8, Composer y el patron MVC. Además, he mejorado la experiencia del usuario implementando la librería SweetAlert2 para mostrar mensajes y alertas atractivas.
 
