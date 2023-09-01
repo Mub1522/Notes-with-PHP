@@ -19,4 +19,3 @@ INSERT INTO `notes` (`ref`,`title`,`content`,`color`,`updated`) VALUES ('64f0a1a
 INSERT INTO `notes` (`ref`,`title`,`content`,`color`,`updated`) VALUES ('64f0a1b34a4bb','Title 4','content 4','brown','2023-08-31');
 INSERT INTO `notes` (`ref`,`title`,`content`,`color`,`updated`) VALUES ('64f0a1c206967','Title 5','content 5','purple','2023-08-31');
 INSERT INTO `notes` (`ref`,`title`,`content`,`color`,`updated`) VALUES ('64f0a1cd908dd','Title 6','content 6','orange','2023-08-31');
-

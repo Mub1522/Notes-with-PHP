@@ -4,6 +4,16 @@ use Usuario\NotesWithPhp\models\Note;
 
 $notes = Note::getAll();
 
+if (count($_POST) > 0) {
+
+    $ref = isset($_POST["ref"]) ? $_POST["ref"] : "";
+
+    if ($ref != "") {
+        Note::delete($ref);
+        header("Location: http://localhost/Notes-with-PHP/?view=home");
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +29,10 @@ $notes = Note::getAll();
 
     <link rel="stylesheet" href="src/views/resources/main.css">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -27,6 +41,8 @@ $notes = Note::getAll();
         <div class="row">
             <?php
             foreach ($notes as $note) {
+                $formId = 'formDeleteNote_' . $note->getRef();
+                $buttonId = 'btnDeleteNote_' . $note->getRef();
             ?>
                 <div class="col-md-4 col-sm-6 content-card">
 
@@ -37,6 +53,14 @@ $notes = Note::getAll();
                                 <h4 class="title"><a href="?view=view&id=<?= $note->getRef() ?>"><?= $note->getTitle() ?></a></h4>
                                 <p class="description"><?= $note->getContent() ?></p>
                             </div>
+                            <div class="card-footer text-right">
+                                <form action="?view=home" method="POST" id="<?= $formId ?>">
+                                    <input type="hidden" name="ref" value="<?= $note->getRef() ?>">
+                                    <button type="button" class="btn btn-danger btn-xs pt-2" data-form="<?= $formId ?>">
+                                        <i class="bi bi-trash-fill"></i>
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -45,6 +69,34 @@ $notes = Note::getAll();
             ?>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const buttons = document.querySelectorAll("[data-form]");
+
+            buttons.forEach(function(button) {
+                button.addEventListener("click", function() {
+                    const formId = this.getAttribute("data-form");
+                    const form = document.getElementById(formId);
+
+                    Swal.fire({
+                        title: 'Are you sure you want to delete this note?',
+                        icon: 'info',
+                        showCancelButton: true,
+                        confirmButtonText: 'Yes ☹',
+                        confirmButtonColor: '#E82252',
+                        cancelButtonText: 'No 😄',
+                        cancelButtonColor: '#2DC0D4'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            form.submit();
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
 </body>
 
 </html>
