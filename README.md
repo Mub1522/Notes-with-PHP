@@ -4,7 +4,6 @@
 ![notas-adhesivas (1)](https://github.com/Mub1522/Notes-with-PHP/assets/105318645/30e895dc-b879-44f2-899c-46236c813964)
 
 **Creditos**: Marcos Rivas R @vidamrr
-- https://www.youtube.com/watch?v=w8CZFQZV_8Y&t=3202s (Curso / Proyectos con PHP)
 
 ¡Bienvenido a mi repositorio de la Página de Creación de Notas con PHP, MySQL, Composer y el patron MVC! En este proyecto, he desarrollado una Página de Creación de Notas completamente funcional utilizando las tecnologías PHP 8, MySQL 8, Composer y el patron MVC. Además, he mejorado la experiencia del usuario implementando la librería SweetAlert2 para mostrar mensajes y alertas atractivas.
 
