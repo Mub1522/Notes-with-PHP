@@ -41,4 +41,4 @@
 
 5. Ten en cuenta que para editar la informacion de una nota, debes darle en el titulo de esta y seras redirigido a la vista view, ya que esta vista no aparece en la navbar por la logica y el envio de datos que se manejo.
 
-¡Espero que encuentres útil este proyecto y que te ayude a comprender cómo construir una Página de Creación de Notas atractiva utilizando PHP, MySQL, Composer(MVC) y SweetAlert2! Siéntete libre de utilizar este código como referencia para tus propios proyectos. Frey 💗
+¡Espero que encuentres útil este proyecto y que te ayude a comprender cómo construir una Página de Creación de Notas atractiva utilizando PHP, MySQL, Composer(MVC) y SweetAlert2! Siéntete libre de utilizar este código como referencia para tus propios proyectos. 
